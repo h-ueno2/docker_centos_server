@@ -1,0 +1,8 @@
+version: '3'
+services:
+  centos:
+    build: ./centos
+    image: centos
+    container_name: centos
+    ports: 
+      - 8080:8080

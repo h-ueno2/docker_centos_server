@@ -16,14 +16,18 @@ docekr build -t my-centos:1 .
 docker run -it -d -p <ホスト側のポート>:<コンテナ側のポート> --name <コンテナ名> <image>
 
 # 例
-docker run -it -d -p 8080:8080 --name my-centos my-centos:1
+docker run -it -d -p 8080:80 --name my-centos my-centos:1
+
+# CentOSコンテナでsystemctlを使用したい場合は以下
+docker run --privileged -d -p 8080:80 --name my-centos my-centos:1 /sbin/init 
 ```
 
-* `-d` - バッググラウンド実行
-* `-it` - 
+* `-d` - バッググラウンド実行する。
+* `-it` - コンテナを操作する。
+* `-v` - コンテナとディレクトリを共有する。
 
 
 ## コンテナに接続
 ```
-docker exec -it tomcat2 bash
+docker exec -it <コンテナ名> bash
 ```

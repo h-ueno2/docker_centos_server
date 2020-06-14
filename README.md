@@ -8,7 +8,7 @@ Docker習熟用にCentOSのコンテナを立ち上げて色々弄ってみた�
 docker build -t <image名>:<tag> <Dockerfile配置ディレクトリ>
 
 # 例
-docekr build -t my-centos:1 .
+docker build -t my-centos:1 .
 ```
 
 ## コンテナ作成
@@ -28,6 +28,9 @@ docker run --privileged -d -p 8080:80 --name my-centos my-centos:1 /sbin/init
 
 
 ## コンテナに接続
-```
+```shell
 docker exec -it <コンテナ名> bash
+
+# 例
+docker exec -it my-centos bash
 ```

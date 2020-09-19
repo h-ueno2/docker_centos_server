@@ -34,3 +34,40 @@ docker exec -it <コンテナ名> bash
 # 例
 docker exec -it my-centos bash
 ```
+
+# Docker-composeコマンドの復習
+
+## コンテナの起動
+```shell
+docker-compose up -d
+```
+
+## 起動中のコマンド確認
+```shell
+docker-compose ps
+```
+
+## imageの作成
+```shell
+docker-compose build
+```
+
+## コンテナの停止
+```shell
+docker-compose stop
+```
+
+## コンテナの削除
+```shell
+docker-compose rm
+```
+
+## 停止、削除、ネットワーク削除を実行
+``` shell
+docker-compose down
+```
+
+## imageも合わせて削除
+```shell
+docker-compose down --rmi all
+```

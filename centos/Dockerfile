@@ -17,11 +17,18 @@ COPY config/phpinfo.php /var/www/html/phpinfo.php
 
 # install ssl
 RUN yum install mod_ssl -y
+# COPY config/openssl.cnf /etc/pki/tls/openssl.cnf 
 
 # 証明書の作成
 COPY config/createCert.sh /tmp/createCert.sh
 RUN chmod a+x /tmp/createCert.sh
 RUN /bin/bash -c "source /tmp/createCert.sh"
+
+# SSL設定ファイルの配置
+COPY config/ssl.conf /etc/httpd/conf.d/ssl.conf
+
+# httpd.confの入れ替え
+COPY config/httpd.conf /etc/httpd/conf/httpd.conf
 
 # 起動時にapacheを起動するように設定
 RUN systemctl enable httpd

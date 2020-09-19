@@ -6,6 +6,7 @@ services:
     container_name: centos
     ports: 
       - 8080:80
+      - 8443:443
     cap_add:
       - SYS_ADMIN
     security_opt:

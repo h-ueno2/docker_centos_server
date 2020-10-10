@@ -1,8 +1,24 @@
 # 本リポジトリについて
-Docker習熟用にCentOSのコンテナを立ち上げて色々弄ってみた結果です。
+https接続できるPHP環境を作成します。  
+自己証明書をコンテナ内で作成し、使用しています。
 
-# Dockerコマンドの復習
+# 実行方法
+本リポジトリのRootにて以下を実行します。
+```shell
+docker-compose up -d
+```
 
+コンテナの終了方法については下記のDocker-composeコマンドを参照してください。
+
+# Google Chromeでの実行について
+Google Chromeでは自己証明書を使用した環境へのアクセス時に警告が表示されてしまい、ページの表示ができません。  
+以下の設定を`Enabled`に変更する必要があります。
+
+```
+chrome://flags/#allow-insecure-localhost
+```
+
+# Dockerコマンド
 ## Docekrfileのビルド
 ```shell
 docker build -t <image名>:<tag> <Dockerfile配置ディレクトリ>
@@ -35,7 +51,7 @@ docker exec -it <コンテナ名> bash
 docker exec -it my-centos bash
 ```
 
-# Docker-composeコマンドの復習
+# Docker-composeコマンド
 
 ## コンテナの起動
 ```shell
